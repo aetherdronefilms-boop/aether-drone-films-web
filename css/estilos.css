@@ -1,0 +1,50 @@
+/* header */
+
+.header-principal {
+    position: sticky;
+    top: 0;         
+    left: 0;     
+    width: 100%;   
+    z-index: 1000;
+
+    padding: 15px 0; 
+    background-color: rgba(10, 10, 15, 0.8); 
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    transition: all 0.3s ease; 
+}
+
+.contenedor-header {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+
+.navegacion-principal ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navegacion-principal a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navegacion-principal a:hover {
+    color: #C69C56;
+}
