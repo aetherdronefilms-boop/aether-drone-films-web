@@ -1,50 +1,89 @@
-/* header */
+/* ===== RESET BÁSICO Y ESTILOS GLOBALES ===== */
+/* Es una buena práctica poner esto al principio para que todos los navegadores se comporten igual. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif; /* <-- Reemplaza esto con la tipografía que elijas de Google Fonts */
+    background-color: #0a0a0f; /* Un fondo oscuro para que el contenido resalte */
+    color: white;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Ayuda a evitar espacios extra debajo de las imágenes */
+}
+
+/* ===== ESTILOS DEL HEADER (Versión para Celulares - Mobile First) ===== */
+/* Estos son los estilos base que se aplicarán en TODAS las pantallas. */
 
 .header-principal {
     position: sticky;
-    top: 0;         
-    left: 0;     
-    width: 100%;   
-    z-index: 1000;
-
-    padding: 15px 0; 
-    background-color: rgba(10, 10, 15, 0.8); 
-    backdrop-filter: blur(10px); 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-    transition: all 0.3s ease; 
+    top: 0;
+    width: 100%;
+    padding: 15px 0;
+    background-color: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(10px); /* Efecto de desenfoque moderno */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000; /* Asegura que siempre esté por encima de todo */
 }
 
+/* --- ESTA ES LA CAJA FLEXIBLE QUE PREGUNTABAS --- */
 .contenedor-header {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 90%;             /* Ocupa el 90% del ancho de CUALQUIER pantalla */
+    max-width: 1200px;        /* Pero tiene un TOPE de 1200px para que no se estire demasiado en pantallas gigantes */
+    margin: 0 auto;           /* Siempre estará centrado horizontalmente */
+    
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
     align-items: center;
 }
 
 .logo img {
-    height: 40px;
-    width: auto;
+    height: 35px; /* Hacemos el logo un poco más pequeño para móviles */
+}
+
+/* En la versión móvil, OCULTAMOS el menú de escritorio. */
+/* Más adelante, aquí pondríamos el icono de "hamburguesa" (☰). */
+.navegacion-principal {
+    display: none; 
 }
 
 
-.navegacion-principal ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
+/* ===== MEDIA QUERY PARA TABLETS Y ESCRITORIO ===== */
+/* Cuando la pantalla mida 768px o más, se aplican los siguientes estilos */
 
-.navegacion-principal a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
+@media (min-width: 768px) {
+    
+    /* Hacemos el logo un poco más grande en pantallas grandes */
+    .logo img {
+        height: 40px; 
+    }
 
-.navegacion-principal a:hover {
-    color: #C69C56;
+    /* MOSTRAMOS la navegación que ocultamos en móviles */
+    .navegacion-principal {
+        display: block; 
+    }
+
+    .navegacion-principal ul {
+        list-style: none;
+        display: flex;
+        gap: 25px; /* Espacio entre los elementos del menú */
+    }
+
+    .navegacion-principal a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        transition: color 0.3s ease; /* Transición suave para el hover */
+    }
+
+    .navegacion-principal a:hover {
+        color: #C69C56; /* Tu color dorado para el efecto hover */
+    }
 }
